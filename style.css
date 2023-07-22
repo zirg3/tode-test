@@ -1,0 +1,188 @@
+* {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  box-sizing: border-box;
+}
+
+.todo {
+  padding: 70px 120px;
+  max-width: 1280px;
+  width: 100%;
+  min-height: 720px;
+  border-radius: 65px;
+  background-color: #38404B;
+  margin: 30px auto;
+  position: relative;
+}
+.todo h1 {
+  display: none;
+}
+.todo h2 {
+  color: #94ADCF;
+  font-size: 28px;
+  font-weight: 400;
+  margin-bottom: 60px;
+  margin-top: 60px;
+}
+.todo .todo__burger {
+  background: url(img/burger.svg);
+  width: 40px;
+  height: 29px;
+  position: absolute;
+  right: 80px;
+  top: 50px;
+  border: none;
+}
+.todo .todo__new-task {
+  max-width: 578px;
+  width: 100%;
+  margin: 0 auto;
+  margin-bottom: 100px;
+  position: relative;
+}
+.todo input {
+  width: 100%;
+  outline: none;
+  color: rgba(148, 173, 207, 0.7);
+  font-size: 16px;
+  font-weight: 400;
+  padding: 20px;
+  border: none;
+  border-radius: 16px;
+  background: #38404B;
+  box-shadow: 3px 3px 8px 0px rgba(46, 53, 62, 0.9) inset, -3px -3px 6px 0px rgba(66, 75, 88, 0.9) inset, 3px -3px 6px 0px rgba(46, 53, 62, 0.2) inset, -3px 3px 6px 0px rgba(46, 53, 62, 0.2) inset, -1px -1px 2px 0px rgba(46, 53, 62, 0.5), 1px 1px 2px 0px rgba(66, 75, 88, 0.3);
+}
+.todo input::placeholder {
+  color: rgba(148, 173, 207, 0.7);
+}
+.todo .todo__add {
+  position: absolute;
+  right: 0px;
+  top: 50%;
+  width: 25px;
+  height: 25px;
+  transform: translate(-50%, -50%);
+  background: url(img/check.svg);
+}
+.todo .todo__active {
+  display: grid;
+  gap: 50px;
+  grid-template-columns: repeat(2, 1fr);
+}
+.todo .todo__active li {
+  cursor: pointer;
+  color: #94ADCF;
+  font-size: 18px;
+  font-weight: 500;
+  padding: 18px 18px 18px 50px;
+  border-radius: 16px;
+  background: #38404B;
+  box-shadow: 5px 5px 13px 0px rgba(48, 54, 64, 0.9), -5px -5px 10px 0px rgba(64, 74, 86, 0.9), 5px -5px 10px 0px rgba(48, 54, 64, 0.2), -5px 5px 10px 0px rgba(48, 54, 64, 0.2), -1px -1px 2px 0px rgba(48, 54, 64, 0.5) inset, 1px 1px 2px 0px rgba(64, 74, 86, 0.3) inset;
+  position: relative;
+}
+.todo .todo__active li::before {
+  content: "";
+  height: 15px;
+  width: 15px;
+  position: absolute;
+  border: 2px solid #94ADCF;
+  border-radius: 50%;
+  left: 15px;
+}
+.todo .todo__completed {
+  display: grid;
+  gap: 50px;
+  grid-template-columns: repeat(2, 1fr);
+}
+.todo .todo__completed li {
+  cursor: pointer;
+  color: #94ADCF;
+  font-size: 18px;
+  font-weight: 500;
+  padding: 18px 18px 18px 50px;
+  border-radius: 16px;
+  background: #38404B;
+  box-shadow: 5px 5px 13px 0px rgba(48, 54, 64, 0.9), -5px -5px 10px 0px rgba(64, 74, 86, 0.9), 5px -5px 10px 0px rgba(48, 54, 64, 0.2), -5px 5px 10px 0px rgba(48, 54, 64, 0.2), -1px -1px 2px 0px rgba(48, 54, 64, 0.5) inset, 1px 1px 2px 0px rgba(64, 74, 86, 0.3) inset;
+  position: relative;
+}
+.todo .todo__completed li::before {
+  content: "";
+  height: 15px;
+  width: 15px;
+  position: absolute;
+  border: 2px solid #94ADCF;
+  border-radius: 50%;
+  left: 15px;
+}
+.todo .todo__completed .completed {
+  text-decoration: line-through;
+  box-shadow: 5px 5px 13px 0px rgba(48, 54, 64, 0.9) inset, -5px -5px 10px 0px rgba(64, 74, 86, 0.9) inset, 5px -5px 10px 0px rgba(48, 54, 64, 0.2) inset, -5px 5px 10px 0px rgba(48, 54, 64, 0.2) inset, -1px -1px 2px 0px rgba(48, 54, 64, 0.5), 1px 1px 2px 0px rgba(64, 74, 86, 0.3);
+}
+.todo .todo__completed .completed::before {
+  background-color: #94ADCF;
+}
+.todo .todo__add-mobile {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .todo {
+    padding: 50px 30px;
+    margin: 0;
+    min-height: 100vh;
+  }
+  .todo::after {
+    content: "";
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #ffffff;
+    width: 40%;
+    height: 5px;
+    border-radius: 100px;
+  }
+  .todo h1 {
+    color: #94ADCF;
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 60px;
+    display: block;
+    text-align: left;
+  }
+  .todo .todo__new-task {
+    display: none;
+  }
+  .todo .todo__burger {
+    right: 30px;
+  }
+  .todo .todo__completed {
+    gap: 30px;
+    grid-template-columns: repeat(1, 1fr);
+  }
+  .todo .todo__active {
+    display: grid;
+    gap: 30px;
+    grid-template-columns: repeat(1, 1fr);
+  }
+  .todo .todo__add-mobile {
+    display: block;
+    border: none;
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    bottom: 40px;
+    right: 40px;
+    border-radius: 50%;
+    background: #38404B;
+    box-shadow: 3px 3px 2px 0px rgb(48, 54, 64), -5px -5px 10px 0px rgba(64, 74, 86, 0.9), 5px -5px 10px 0px rgba(48, 54, 64, 0.2), -5px 5px 10px 0px rgba(48, 54, 64, 0.2), -1px -1px 2px 0px rgba(48, 54, 64, 0.5) inset, 1px 1px 2px 0px rgba(64, 74, 86, 0.3) inset;
+    background-image: url(img/plus.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-size: 50%;
+    background-position: center;
+  }
+}
+
+/*# sourceMappingURL=style.css.map */

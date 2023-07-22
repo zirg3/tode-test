@@ -1,0 +1,214 @@
+* {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  box-sizing: border-box;
+}
+
+$text-color: #94ADCF;
+$bg-color: #38404B;
+
+@mixin bg-radius {
+  border-radius: 16px;
+  background: $bg-color;
+}
+
+.todo {
+  padding: 70px 120px;
+  max-width: 1280px;
+  width: 100%;
+  min-height: 720px;
+  border-radius: 65px;
+  background-color: $bg-color;
+  margin: 30px auto;
+  position: relative;
+
+  h1 {
+    display: none;
+  }
+
+  h2 {
+    color: $text-color;
+    font-size: 28px;
+    font-weight: 400;
+    margin-bottom: 60px;
+    margin-top: 60px;
+  }
+
+  .todo__burger {
+    background: url(img/burger.svg);
+    width: 40px;
+    height: 29px;
+    position: absolute;
+    right: 80px;
+    top: 50px;
+    border: none;
+  }
+
+  .todo__new-task {
+    max-width: 578px;
+    width: 100%;
+    margin: 0 auto;
+    margin-bottom: 100px;
+    position: relative;
+  }
+
+  input {
+    width: 100%;
+    outline: none;
+    color: rgba(148, 173, 207, 0.70);
+    font-size: 16px;
+    font-weight: 400;
+    padding: 20px;
+    border: none;
+    @include bg-radius;
+    box-shadow: 3px 3px 8px 0px rgba(46, 53, 62, 0.90) inset, -3px -3px 6px 0px rgba(66, 75, 88, 0.90) inset, 3px -3px 6px 0px rgba(46, 53, 62, 0.20) inset, -3px 3px 6px 0px rgba(46, 53, 62, 0.20) inset, -1px -1px 2px 0px rgba(46, 53, 62, 0.50), 1px 1px 2px 0px rgba(66, 75, 88, 0.30);
+    
+    &::placeholder {
+      color: rgba(148, 173, 207, 0.70);
+    }
+  }
+
+  .todo__add {
+    position: absolute;
+    right: 0px;
+    top: 50%;
+    width: 25px;
+    height: 25px;
+    transform: translate(-50%, -50%);
+    background: url(img/check.svg);
+  }
+
+  .todo__active {
+    display: grid;
+    gap: 50px;
+    grid-template-columns: repeat(2, 1fr);
+    
+    li {
+      cursor: pointer;
+      color: $text-color;
+      font-size: 18px;
+      font-weight: 500;
+      padding: 18px 18px 18px 50px;
+      @include bg-radius;
+      box-shadow: 5px 5px 13px 0px rgba(48, 54, 64, 0.90), -5px -5px 10px 0px rgba(64, 74, 86, 0.90), 5px -5px 10px 0px rgba(48, 54, 64, 0.20), -5px 5px 10px 0px rgba(48, 54, 64, 0.20), -1px -1px 2px 0px rgba(48, 54, 64, 0.50) inset, 1px 1px 2px 0px rgba(64, 74, 86, 0.30) inset;
+      position: relative;
+      
+      &::before {
+        content: '';
+        height: 15px;
+        width: 15px;
+        position: absolute;
+        border: 2px solid $text-color;
+        border-radius: 50%;
+        left: 15px;
+      }
+    }
+  }
+
+  .todo__completed {
+    display: grid;
+    gap: 50px;
+    grid-template-columns: repeat(2, 1fr);
+    
+    li {
+      cursor: pointer;
+      color: $text-color;
+      font-size: 18px;
+      font-weight: 500;
+      padding: 18px 18px 18px 50px;
+      @include bg-radius;
+      box-shadow: 5px 5px 13px 0px rgba(48, 54, 64, 0.90), -5px -5px 10px 0px rgba(64, 74, 86, 0.90), 5px -5px 10px 0px rgba(48, 54, 64, 0.20), -5px 5px 10px 0px rgba(48, 54, 64, 0.20), -1px -1px 2px 0px rgba(48, 54, 64, 0.50) inset, 1px 1px 2px 0px rgba(64, 74, 86, 0.30) inset;
+      position: relative;
+      
+      &::before {
+        content: '';
+        height: 15px;
+        width: 15px;
+        position: absolute;
+        border: 2px solid $text-color;
+        border-radius: 50%;
+        left: 15px;
+      }
+    }
+    
+    .completed {
+      text-decoration: line-through;
+      box-shadow: 5px 5px 13px 0px rgba(48, 54, 64, 0.90) inset, -5px -5px 10px 0px rgba(64, 74, 86, 0.90) inset, 5px -5px 10px 0px rgba(48, 54, 64, 0.20) inset, -5px 5px 10px 0px rgba(48, 54, 64, 0.20) inset, -1px -1px 2px 0px rgba(48, 54, 64, 0.50), 1px 1px 2px 0px rgba(64, 74, 86, 0.30);
+      
+      &::before {
+        background-color: $text-color;
+      }
+    }
+  }
+
+  .todo__add-mobile {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .todo {
+    padding: 50px 30px;
+    margin: 0;
+    min-height: 100vh;
+    
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: #ffffff;
+      width: 40%;
+      height: 5px;
+      border-radius: 100px;
+    }
+
+    h1 {
+      color: $text-color;
+      font-size: 28px;
+      font-weight: 700;
+      margin-bottom: 60px;
+      display: block;
+      text-align: left;
+    }
+
+    .todo__new-task {
+      display: none;
+    }
+
+    .todo__burger {
+      right: 30px;
+    }
+
+    .todo__completed {
+      gap: 30px;
+      grid-template-columns: repeat(1, 1fr);
+    }
+    
+    .todo__active {
+      display: grid;
+      gap: 30px;
+      grid-template-columns: repeat(1, 1fr);
+    }
+
+    .todo__add-mobile {
+      display: block;
+      border: none;
+      position: absolute;
+      width: 60px;
+      height: 60px;
+      bottom: 40px;
+      right: 40px;
+      border-radius: 50%;
+      background: $bg-color;
+      box-shadow: 3px 3px 2px 0px rgba(48, 54, 64, 1), -5px -5px 10px 0px rgba(64, 74, 86, 0.90), 5px -5px 10px 0px rgba(48, 54, 64, 0.20), -5px 5px 10px 0px rgba(48, 54, 64, 0.20), -1px -1px 2px 0px rgba(48, 54, 64, 0.50) inset, 1px 1px 2px 0px rgba(64, 74, 86, 0.30) inset;
+      background-image: url(img/plus.svg);
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-size: 50%;
+      background-position: center;
+    }
+  }
+}
